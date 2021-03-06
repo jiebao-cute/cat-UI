@@ -11,14 +11,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="faed7b91-6c13-42d8-b535-03f8b4492186" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/Frank.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Frank2.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/Doc.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/Home.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Frank.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Frank2.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -56,7 +57,7 @@
       <option name="presentableId" value="Default" />
       <updated>1615010466178</updated>
       <workItem from="1615010467306" duration="1484000" />
-      <workItem from="1615011975788" duration="4319000" />
+      <workItem from="1615011975788" duration="8733000" />
     </task>
     <task id="LOCAL-00001" summary="创建vue">
       <created>1615012114705</created>
@@ -65,7 +66,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615012114705</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="安装并初始化vue-router">
+      <created>1615021020027</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1615021020028</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -84,6 +92,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="创建vue" />
-    <option name="LAST_COMMIT_MESSAGE" value="创建vue" />
+    <MESSAGE value="安装并初始化vue-router" />
+    <option name="LAST_COMMIT_MESSAGE" value="安装并初始化vue-router" />
   </component>
 </project>
