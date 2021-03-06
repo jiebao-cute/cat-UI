@@ -11,10 +11,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="faed7b91-6c13-42d8-b535-03f8b4492186" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/Topnav.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/HelloWorld.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Doc.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Doc.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Home.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -52,7 +50,7 @@
       <option name="presentableId" value="Default" />
       <updated>1615010466178</updated>
       <workItem from="1615010467306" duration="1484000" />
-      <workItem from="1615011975788" duration="11505000" />
+      <workItem from="1615011975788" duration="14055000" />
     </task>
     <task id="LOCAL-00001" summary="创建vue">
       <created>1615012114705</created>
@@ -75,7 +73,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615039543813</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="封装Topnav.vue组件">
+      <created>1615042107591</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1615042107591</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -96,6 +101,7 @@
     <MESSAGE value="创建vue" />
     <MESSAGE value="安装并初始化vue-router" />
     <MESSAGE value="topnav 样式更新" />
-    <option name="LAST_COMMIT_MESSAGE" value="topnav 样式更新" />
+    <MESSAGE value="封装Topnav.vue组件" />
+    <option name="LAST_COMMIT_MESSAGE" value="封装Topnav.vue组件" />
   </component>
 </project>
