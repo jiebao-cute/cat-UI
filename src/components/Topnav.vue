@@ -12,7 +12,6 @@ import {inject,Ref} from 'vue'
 export default {
  setup(){
    const menuVisible = inject<Ref<boolean>>('menuVisible')//get
-   console.log('Topnav获取的值' + menuVisible.value);
    const toggleMenu = ()=>{
      menuVisible.value = !menuVisible.value
    }
@@ -27,6 +26,8 @@ export default {
   padding: 16px;
   position: relative;
   z-index: 10;
+  justify-content: center;
+  align-items: center;
   > .logo {
     max-width: 6em;
     margin-right: auto;
@@ -37,6 +38,14 @@ export default {
     flex-wrap: nowrap;
     > li {
       margin: 0 1em;
+    }
+  }
+  @media (max-width: 500px) {
+   > .menu{
+     display: none;
+   }
+    > .logo{
+      margin: 0 auto;
     }
   }
 }
