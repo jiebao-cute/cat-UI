@@ -3,9 +3,9 @@
    <div class="gulu-dialog-overlay" @click="OnClickOverlay"></div>
      <div class="gulu-dialog-wrapper">
        <div class=" gulu-dialog">
-      <header><span class="gulu-dialog-context"></span> {{title}} <span @click="close" class="gulu-dialog-close"></span></header>
+      <header><span class="gulu-dialog-context"></span> <slot name="title"/> <span @click="close" class="gulu-dialog-close"></span></header>
     <main>
-      <slot/>
+      <slot name="context"/>
     </main>
     <footer>
       <Button @click="ok">ok</Button>
@@ -20,10 +20,6 @@ import Button from './Button.vue';
 
 export default {
   props:{
-    title:{
-      type:String,
-      default:'提示'
-    },
     visible:{ //是否出现输入框
       type:Boolean,
       default:false

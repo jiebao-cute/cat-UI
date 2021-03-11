@@ -3,14 +3,18 @@
     <h2>dialog示例1</h2>
     <Button @click="toggle">toggle</Button>
    <Dialog :visible="x"  @update:visible = "x = $event"  :close-onclick-overlay="false"
-   :ok="f1"  :cancel="f2"
-   >
+   :ok="f1"  :cancel="f2">
+     <template v-slot:context>
      <div>
        哈喽，我是你爸爸
      </div>
      <div>
       哈喽我是你妈妈
      </div>
+     </template>
+     <template v-slot:title>
+       <strong>我是一个标题</strong>
+     </template>
    </Dialog>
   </div>
 </template>
