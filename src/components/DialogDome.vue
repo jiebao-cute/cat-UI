@@ -2,7 +2,7 @@
   <div>
     <h2>dialog示例1</h2>
     <Button @click="toggle">toggle</Button>
-   <Dialog :visible="x"></Dialog>
+   <Dialog :visible="x"  @update:visible = "x = $event"></Dialog>
   </div>
 </template>
 <script lang="ts">

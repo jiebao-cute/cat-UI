@@ -1,9 +1,9 @@
 <template>
   <template v-if="visible">
-   <div class="gulu-dialog-overlay"></div>
+   <div class="gulu-dialog-overlay" @click="close"></div>
      <div class="gulu-dialog-wrapper">
        <div class=" gulu-dialog">
-      <header><span class="gulu-dialog-context"></span>标题 <span class="gulu-dialog-close"></span></header>
+      <header><span class="gulu-dialog-context"></span>标题 <span @click="close" class="gulu-dialog-close"></span></header>
     <main>
       <p>第一行字</p>
       <p>第二行字</p>
@@ -26,6 +26,12 @@ export default {
   },
   components:{
     Button
+  },
+  setup(props,context){
+    const close = ()=>{
+      context.emit('update:visible',false)
+    }
+    return{close}
   }
 }
 </script>
