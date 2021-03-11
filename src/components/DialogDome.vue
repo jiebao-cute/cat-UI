@@ -2,7 +2,7 @@
   <div>
     <h2>dialog示例1</h2>
     <Button @click="toggle">toggle</Button>
-   <Dialog :visible="x"  @update:visible = "x = $event"  :close-onclick-overlay="false"
+   <Dialog :visible="x"  @update:visible = "x = $event"  :close-onclick-overlay="true"
    :ok="f1"  :cancel="f2">
      <template v-slot:context>
      <div>
@@ -16,12 +16,15 @@
        <strong>我是一个标题</strong>
      </template>
    </Dialog>
+    <h1>示例2</h1>
+    <Button @click="showDialog">show</Button>
   </div>
 </template>
 <script lang="ts">
 import Dialog from '../lib/Dialog.vue'
 import Button from '../lib/Button.vue';
-import {ref} from 'vue'
+import {openDialog} from '../lib/openDialog';
+import {ref,h} from 'vue'
 export default {
   components:{
     Dialog,Button
@@ -35,9 +38,21 @@ export default {
      return false  //返回false，可以通过return 来阻止关闭
     }
     const f2 = () =>{
-               //和ok函数一样的逻辑
+      //和ok函数一样的逻辑
     }
-    return{toggle,x,f1,f2}
+    const showDialog = () => {
+      openDialog({
+        title: h('strong', {}, '标题'),
+        context: '实现一句话打开dialog',
+        ok() {
+          console.log('dfdff')
+        },
+        cancel() {
+          console.log('cancel')
+        }
+      })
+    }
+    return{toggle,x,f1,f2,showDialog}
   }
 
 }

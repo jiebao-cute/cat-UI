@@ -49,17 +49,15 @@ export default {
         close()
       }
     }
-    const ok = ()=>{
     //没有办法判断是否有输入内容再关闭
       //所以再父组件创建一个ok函数，子组件判断这个函数的是否存在，并且返回值不为false才执行close()
-      if (props.ok && props.ok() !== false){
-        close()
-      }else {
-        window.alert('请输入内容')
+      const ok = () => {
+        if (props.ok?.() !== false) {
+          close()
+        }
       }
-    }
     const cancel = ()=>{
-     context.emit('cancel')
+      props.cancel?.() //判断是否存在cancel
       close()
     }
     return{close,OnClickOverlay,ok,cancel}
