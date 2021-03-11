@@ -4,7 +4,14 @@
     <Button @click="toggle">toggle</Button>
    <Dialog :visible="x"  @update:visible = "x = $event"  :close-onclick-overlay="false"
    :ok="f1"  :cancel="f2"
-   ></Dialog>
+   >
+     <div>
+       哈喽，我是你爸爸
+     </div>
+     <div>
+      哈喽我是你妈妈
+     </div>
+   </Dialog>
   </div>
 </template>
 <script lang="ts">
