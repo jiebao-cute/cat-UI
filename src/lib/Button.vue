@@ -84,9 +84,10 @@ $radius:4px;
     color: $blue;
 
     &:hover,
-    &:focus {
-      background: cadetblue;
-      color: white;
+    &:focus::after{
+      content: '';
+      border-bottom: 1px solid black;
+      color: black;
     }
   }
     &.gulu-theme-text {
