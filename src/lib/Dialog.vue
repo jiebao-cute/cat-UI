@@ -1,7 +1,8 @@
 <template>
-<div class="gulu-dialog-overlay"></div>
-  <div class="gulu-dialog-wrapper">
-    <div class=" gulu-dialog">
+  <template v-if="visible">
+   <div class="gulu-dialog-overlay"></div>
+     <div class="gulu-dialog-wrapper">
+       <div class=" gulu-dialog">
       <header><span class="gulu-dialog-context"></span>标题 <span class="gulu-dialog-close"></span></header>
     <main>
       <p>第一行字</p>
@@ -14,10 +15,15 @@
   </div>
   </div>
 </template>
+</template>
 <script lang="ts">
 import Button from './Button.vue';
 
 export default {
+  props:{
+    visible:Boolean,
+    default:false
+  },
   components:{
     Button
   }
