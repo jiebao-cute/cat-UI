@@ -2,7 +2,9 @@
   <div>
     <h2>dialog示例1</h2>
     <Button @click="toggle">toggle</Button>
-   <Dialog :visible="x"  @update:visible = "x = $event"></Dialog>
+   <Dialog :visible="x"  @update:visible = "x = $event"  :close-onclick-overlay="false"
+   :ok="f1"  :cancel="f2"
+   ></Dialog>
   </div>
 </template>
 <script lang="ts">
@@ -18,7 +20,13 @@ export default {
     const toggle = ()=>{
       x.value = !x.value
     }
-    return{toggle,x}
+    const f1 = () =>{
+     return false  //返回false，可以通过return 来阻止关闭
+    }
+    const f2 = () =>{
+               //和ok函数一样的逻辑
+    }
+    return{toggle,x,f1,f2}
   }
 
 }

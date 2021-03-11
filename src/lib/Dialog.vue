@@ -1,6 +1,6 @@
 <template>
   <template v-if="visible">
-   <div class="gulu-dialog-overlay" @click="close"></div>
+   <div class="gulu-dialog-overlay" @click="OnClickOverlay"></div>
      <div class="gulu-dialog-wrapper">
        <div class=" gulu-dialog">
       <header><span class="gulu-dialog-context"></span>标题 <span @click="close" class="gulu-dialog-close"></span></header>
@@ -9,8 +9,8 @@
       <p>第二行字</p>
     </main>
     <footer>
-      <Button>ok</Button>
-      <Button>Cancel</Button>
+      <Button @click="ok">ok</Button>
+      <Button @click="cancel">Cancel</Button>
     </footer>
   </div>
   </div>
@@ -21,8 +21,20 @@ import Button from './Button.vue';
 
 export default {
   props:{
-    visible:Boolean,
-    default:false
+    visible:{ //是否出现输入框
+      type:Boolean,
+      default:false
+    },
+    closeOnclickOverlay: {//点击遮罩层关闭输入框，默认是是的
+     type:Boolean,
+      default: true
+    },
+    f1:{
+      type:Function,
+    },
+    f2:{
+      type:Function,
+    },
   },
   components:{
     Button
@@ -31,7 +43,25 @@ export default {
     const close = ()=>{
       context.emit('update:visible',false)
     }
-    return{close}
+    const  OnClickOverlay =()=>{//判断closeOnclickOverlay是否为true,再运行Close
+      if (props.closeOnclickOverlay){
+        close()
+      }
+    }
+    const ok = ()=>{
+    //没有办法判断是否有输入内容再关闭
+      //所以再父组件创建一个ok函数，子组件判断这个函数的是否存在，并且返回值不为false才执行close()
+      if (props.ok && props.ok() !== false){
+        close()
+      }else {
+        window.alert('请输入内容')
+      }
+    }
+    const cancel = ()=>{
+     context.emit('cancel')
+      close()
+    }
+    return{close,OnClickOverlay,ok,cancel}
   }
 }
 </script>
