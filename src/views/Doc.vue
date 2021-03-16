@@ -65,7 +65,8 @@ export default {
   }
 }
 aside{
-  background: aquamarine;
+  color: white;
+  background: #4a3c36;
   width: 150px;
   padding: 16px;
   position: fixed;
