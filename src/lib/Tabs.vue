@@ -1,6 +1,6 @@
 <template>
   <div class=" gulu-tabs">
-    <div class=" gulu-tabs-nav">
+    <div class=" gulu-tabs-nav" ref="container">
     <div class=" gulu-tabs-nav-item"
          v-for="(t,index) in titles"
          :ref="el =>{ if(el) navItems[index] = el }"
@@ -20,7 +20,7 @@
 </template>
 <script lang="ts">
 import Tab from  './Tab.vue'
-import {ref,onMounted} from 'vue'
+import {ref,onMounted,onUpdated} from 'vue'
 export  default {
   props:{
     selected: {
@@ -30,15 +30,24 @@ export  default {
   setup(props,context){
     const navItems = ref<HTMLDivElement[]>([])
     const  indicator = ref<HTMLDivElement>(null)//获取到蓝色下划线
-    onMounted(()=>{//挂载之后打出navItem的值
-    //   console.log({...navItems.value});
-       const divs = navItems.value
-       const result = divs
-           .filter(div=>div.classList.contains('selected'))[0]//获取到名字为selected的div
-     // console.log(result);
-       const {width} = result.getBoundingClientRect()//得到我们需要的宽度
-       indicator.value.style.width = width + 'px' //将item的宽度赋值给div的宽度
-    })
+    const container = ref<HTMLDivElement>(null)
+    const x = () => {
+        //onMounted(()=>{//只在第一次渲染执行
+        //挂载之后打出navItem的值
+        //   console.log({...navItems.value});
+        const divs = navItems.value
+        const result = divs
+            .filter(div=>div.classList.contains('selected'))[0]//获取到名字为selected的div
+        // console.log(result);
+        const {width} = result.getBoundingClientRect()//得到我们需要的宽度
+        indicator.value.style.width = width + 'px' //将item的宽度赋值给div的宽度
+        const {left:left1} = container.value.getBoundingClientRect()//得到nav左边的宽度
+        const {left:left2} = result.getBoundingClientRect()//获取第一个div的最左侧宽度
+        const left = left2-left1
+        indicator.value.style.left = left + 'px'
+    }
+    onMounted(x)
+    onUpdated(x)
      const defaults = context.slots.default()
      defaults.forEach((tag)=>{
        if (tag.type !== Tab){ //判断TabsDome使用的子组件标签必须是tab标签
@@ -51,7 +60,13 @@ export  default {
     const select = (title:string)=>{
        context.emit("update:selected",title)
     }
-   return{defaults,titles,select,navItems,indicator}
+   return{
+      defaults,
+     titles,
+     select,
+     navItems,
+     indicator,
+     container}
   }
 }
 </script>
@@ -83,6 +98,7 @@ $border-color:#d9d9d9;
       left: 0;
       bottom: -1px;
       width: 100px;
+      transition: all 300ms;
     }
   }
   &-content{
