@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="topnavAndBanner">
     <Topnav/>
     <div class="banner">
       <h1>cat UI</h1>
@@ -18,15 +18,17 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+.topnavAndBanner{
+  background: linear-gradient(145deg, rgba(136,125,119,1) 0%, rgba(57,42,35,1) 100%);
+}
 .banner{
-  background: aquamarine;
   padding: 100px 0;
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
   > .action{
-    padding: 10px 0;
+    padding: 8px 0;
     a{
       margin: 0 8px;
       background: lightskyblue;
