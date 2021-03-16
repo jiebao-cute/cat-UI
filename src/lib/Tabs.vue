@@ -3,10 +3,11 @@
     <div class=" gulu-tabs-nav">
     <div class=" gulu-tabs-nav-item"
          v-for="(t,index) in titles"
+         :ref="el =>{ if(el) navItems[index] = el }"
          @click="select(t)"
          :class="{selected:t === selected}"
          :key="index">{{t}}</div>
-      <div class="gulu-tabs-nav-indicator"></div>
+      <div class="gulu-tabs-nav-indicator"  ref="indicator"></div>
     </div>
     <div class=" gulu-tabs-content">
       <component class=" gulu-tabs-content-item"
@@ -19,6 +20,7 @@
 </template>
 <script lang="ts">
 import Tab from  './Tab.vue'
+import {ref,onMounted} from 'vue'
 export  default {
   props:{
     selected: {
@@ -26,6 +28,17 @@ export  default {
     }
   },
   setup(props,context){
+    const navItems = ref<HTMLDivElement[]>([])
+    const  indicator = ref<HTMLDivElement>(null)//获取到蓝色下划线
+    onMounted(()=>{//挂载之后打出navItem的值
+    //   console.log({...navItems.value});
+       const divs = navItems.value
+       const result = divs
+           .filter(div=>div.classList.contains('selected'))[0]//获取到名字为selected的div
+     // console.log(result);
+       const {width} = result.getBoundingClientRect()//得到我们需要的宽度
+       indicator.value.style.width = width + 'px' //将item的宽度赋值给div的宽度
+    })
      const defaults = context.slots.default()
      defaults.forEach((tag)=>{
        if (tag.type !== Tab){ //判断TabsDome使用的子组件标签必须是tab标签
@@ -38,7 +51,7 @@ export  default {
     const select = (title:string)=>{
        context.emit("update:selected",title)
     }
-   return{defaults,titles,select}
+   return{defaults,titles,select,navItems,indicator}
   }
 }
 </script>
