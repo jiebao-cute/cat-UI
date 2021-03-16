@@ -1,4 +1,5 @@
 <template>
+  <div>
   <div class="topnavAndBanner">
     <Topnav/>
     <div class="banner">
@@ -10,6 +11,18 @@
       </p>
     </div>
   </div>
+    <div class="features">
+    <svg class="icon">
+      <use xlink:href="#iconVue"></use>
+    </svg>
+    <svg class="icon">
+      <use xlink:href="#iconTS"></use>
+    </svg>
+    <svg class="icon">
+      <use xlink:href="#iconlight"></use>
+    </svg>
+  </div>
+  </div>
 </template>
 <script lang="ts">
 import Topnav from '../components/Topnav.vue';
@@ -18,8 +31,15 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+$border-radius: 6px;
 .topnavAndBanner{
   background: linear-gradient(145deg, rgba(136,125,119,1) 0%, rgba(57,42,35,1) 100%);
+}
+.features{
+  >svg{
+    width: 64px;
+    height: 64px;
+  }
 }
 .banner{
   padding: 100px 0;
@@ -28,15 +48,13 @@ export default {
   flex-direction: column;
   align-items: center;
   > .action{
-    padding: 8px 0;
+    padding: 10px 0;
     a{
-      margin: 0 8px;
-      background: lightskyblue;
-      $h: 28px;
-      height: $h;
-      line-height:$h;
-      padding: 0 8px;
-      border-radius: $h/2;
+      margin: 0 10px;
+      background: #423129;
+      padding: 6px 10px;
+      color: white;
+      border-radius: $border-radius;
     }
   }
 }
