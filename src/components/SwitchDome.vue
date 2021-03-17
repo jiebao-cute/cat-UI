@@ -5,20 +5,14 @@
   </div>
 </template>
 <script lang="ts">
-import {ref} from  'vue'
-import Button from '../lib/Button.vue';
 import Switch1Demo from './Switch1.demo.vue'
-import  'prismjs';
-import 'prismjs/themes/prism.css'
 import Demo from './Demo.vue';
-const  Prism = (window as any).Prism
 
 export default {
-  components:{Demo, Button},
+  components:{Demo},
   setup(){
-    const bool = ref(false)
-    return {bool,
-      Switch1Demo,Prism}
+    return {
+      Switch1Demo}
   }
 }
 </script>
