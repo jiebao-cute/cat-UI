@@ -14,7 +14,7 @@ export default {
   }
 }
 </script>
-<style lang="scss" >
+<style lang="scss" scoped>
 $h: 44px;
 $h2: $h - 4px;
 .gulu-switch{
