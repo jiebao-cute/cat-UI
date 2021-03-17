@@ -5,13 +5,18 @@ import SwitchDome from './components/SwitchDome.vue'
 import ButtonDome from './components/ButtonDome.vue'
 import DialogDome from './components/DialogDome.vue'
 import TabsDome from './components/TabsDome.vue'
-
+import Intro from  './views/Intro.vue'
+import GetStarted from './views/GetStarted.vue'
+import Install from './views/Install.vue'
 const history = createWebHashHistory()
 export const router = createRouter({
   history: history,
   routes: [
     {path: '/', component: Home},
     {path: '/doc', component: Doc,children:[
+        {path:'intro',component:Intro},
+        {path:'get-started',component:GetStarted},
+        {path:'install',component:Install},
         {path:'switch',component:SwitchDome},
         {path:'button',component:ButtonDome},
         {path:'dialog',component:DialogDome},
