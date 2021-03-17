@@ -49,9 +49,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.router-link-active{
-  text-decoration: underline;
-}
+
 .layout{
   display: flex;
   flex-direction: column;
@@ -83,7 +81,7 @@ aside{
   color: white;
   background: #4a3c36;
   width: 150px;
-  padding: 16px;
+  padding: 16px 0;
   position: fixed;
   top: 0;
   left: 0;
@@ -91,10 +89,21 @@ aside{
   height: 100%;
   >h2 {
     margin-bottom: 6px;
+    padding: 0 16px;
   }
   >ol{
     >li{
-      padding: 4px 0;
+      >a{
+        display: block;
+        padding: 4px 16px;
+      }
+      .router-link-active{
+        text-decoration: none;
+        color: #392a23;
+        background: #c6c1be;
+
+      }
+
     }
   }
   main{
