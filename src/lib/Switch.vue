@@ -33,14 +33,14 @@ span{
   height: $h2;
   width: $h2;
   border-radius: $h2/2;
-  background:palevioletred;
+  background:#423129;
   transition: all 250ms;
 }
 button.gulu-checked {
-  background: cadetblue;
+  background: #423129;
 }
 button.gulu-checked > span {
-  background: greenyellow;
+  background: #ffffe0;
   left: calc(100% - #{$h2} - 2px)
 }
 .gulu-switch:focus{

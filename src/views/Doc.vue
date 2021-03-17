@@ -89,13 +89,13 @@ aside{
   height: 100%;
   >h2 {
     margin-bottom: 6px;
-    padding: 0 16px;
+    padding: 6px 16px;
   }
   >ol{
     >li{
       >a{
         display: block;
-        padding: 4px 16px;
+        padding: 12px 16px;
       }
       .router-link-active{
         text-decoration: none;
