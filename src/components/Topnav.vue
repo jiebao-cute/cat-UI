@@ -10,8 +10,10 @@
         <router-link to="/doc">文档</router-link>
       </li>
     </ul>
-    <span v-if="toggleMenuButtonVisible"
-        class ="toggleMenu"  @click="toggleMenu"></span>
+    <svg v-if="toggleMenuButtonVisible"
+        class ="toggleMenu"  @click="toggleMenu">
+        <use xlink:href="#iconmenu"></use>
+    </svg>
   </div>
 </template>
 <script lang="ts">
@@ -62,7 +64,6 @@ export default {
   > .toggleMenu{
     width: 24px;
     height: 24px;
-    background: red;
     position: absolute;
     left: 16px;
     top: 50%;
