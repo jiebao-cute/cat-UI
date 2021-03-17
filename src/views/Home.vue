@@ -4,8 +4,8 @@
   <div class="topnavAndBanner">
     <Topnav/>
     <div class="banner">
-      <h1>cat UI</h1>
-      <h2>这是一个尝试的框架</h2>
+      <h1>Cat UI</h1>
+      <h2>这 是 一 个 UI 的 框 架</h2>
       <p class="action">
         <a href="https://github.com/">GitHub</a>
         <router-link to="/doc">开始</router-link>
@@ -57,20 +57,28 @@ $border-radius: 6px;
   clip-path: ellipse(80% 60% at 50% 40%);
 }
 .features {
-
   margin: 64px auto;
-  width: 400px;
+  padding: 0 24px;
   @media (min-width: 800px) {
     width: 800px;
+    >ul {
+      >li {
+        width: 50%;
+      }
+    }
   }
   @media (min-width: 1200px) {
     width: 1200px;
+    >ul {
+      >li {
+        width: 33.3333%;
+      }
+    }
   }
   >ul {
     display: flex;
     flex-wrap: wrap;
     >li {
-      width: 400px;
       margin: 16px 0;
       display: grid;
       justify-content: start;
@@ -104,11 +112,11 @@ $border-radius: 6px;
   align-items: center;
   color: #d9d9d8;
   > .action{
-    padding: 10px 0;
+    padding: 12px 0;
     a{
-      margin: 0 10px;
+      margin: 6px 10px;
       background: #423129;
-      padding: 6px 10px;
+      padding: 10px 16px;
       color: white;
       border-radius: $border-radius;
     }
