@@ -64,8 +64,8 @@ $radius:4px;
   border-radius: $radius;
   box-shadow: 0 1px 0  fade-out(black,0.95);
   transition: background 250ms ;
-  & + & {
-    margin-left: 10px;//button之间的间隔
+  & + &  {
+    margin-left: 18px;//button之间的间隔
   }
   &:hover,
   &:focus{
@@ -104,8 +104,8 @@ $radius:4px;
     margin: 0 14px ;
   }
   &.gulu-size-big {
-    font-size: 24px;
-    height: 48px;
+    font-size: 20px;
+    height: 46px;
     padding: 0 16px;
   }
   &.gulu-size-small {

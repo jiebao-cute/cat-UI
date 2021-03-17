@@ -1,59 +1,22 @@
 <template>
-  <div>
-    <h2>dialog示例1</h2>
-    <Button @click="toggle">toggle</Button>
-   <Dialog :visible="x"  @update:visible = "x = $event"  :close-onclick-overlay="true"
-   :ok="f1"  :cancel="f2">
-     <template v-slot:context>
-     <div>
-       哈喽，我是你爸爸
-     </div>
-     <div>
-      哈喽我是你妈妈
-     </div>
-     </template>
-     <template v-slot:title>
-       <strong>我是一个标题</strong>
-     </template>
-   </Dialog>
-    <h1>示例2</h1>
-    <Button @click="showDialog">show</Button>
-  </div>
+  <h1>Dialog 示例</h1>
+  <Demo :component="Dialog1Demo" />
+  <Demo :component="Dialog2Demo" />
 </template>
-<script lang="ts">
-import Dialog from '../lib/Dialog.vue'
-import Button from '../lib/Button.vue';
-import {openDialog} from '../lib/openDialog';
-import {ref,h} from 'vue'
-export default {
-  components:{
-    Dialog,Button
-  },
-  setup(){
-    const x = ref(false)
-    const toggle = ()=>{
-      x.value = !x.value
-    }
-    const f1 = () =>{
-     return false  //返回false，可以通过return 来阻止关闭
-    }
-    const f2 = () =>{
-      //和ok函数一样的逻辑
-    }
-    const showDialog = () => {
-      openDialog({
-        title: h('strong', {}, '标题'),
-        context: '实现一句话打开dialog',
-        ok() {
-          console.log('dfdff')
-        },
-        cancel() {
-          console.log('cancel')
-        }
-      })
-    }
-    return{toggle,x,f1,f2,showDialog}
-  }
 
+<script lang="ts">
+import Demo from './Demo.vue';
+import Dialog1Demo from './Dialog1.demo.vue';
+import Dialog2Demo from './Dialog2.demo.vue';
+export default {
+  components: {
+    Demo
+  },
+  setup() {
+    return {
+      Dialog1Demo,
+      Dialog2Demo
+    }
+  }
 }
 </script>

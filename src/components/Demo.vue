@@ -45,11 +45,11 @@ $border-color: #ffff;
   margin: 16px 0 32px;
   >h2{
     font-size: 20px;
-    padding: 12px 18px;
+    padding: 12px 24px;
     border-bottom: 1px solid $border-color;
   }
   &-component{
-    padding: 36px 16px;
+    padding: 36px 12px;
   }
   &-actions{
     padding: 12px 4px;
