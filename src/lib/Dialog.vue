@@ -1,152 +1,139 @@
 <template>
   <template v-if="visible">
     <Teleport to="body">
-   <div class="gulu-dialog-overlay" @click="OnClickOverlay"></div>
-     <div class="gulu-dialog-wrapper">
-       <div class=" gulu-dialog">
-      <header><span class="gulu-dialog-context"></span> <slot name="title"/> <span @click="close" class="gulu-dialog-close"></span></header>
-    <main>
-      <slot name="context"/>
-    </main>
-    <footer>
-      <Button @click="ok">ok</Button>
-      <Button @click="cancel">Cancel</Button>
-    </footer>
-  </div>
-  </div>
+      <div class="gulu-dialog-overlay" @click="onClickOverlay"></div>
+      <div class="gulu-dialog-wrapper">
+        <div class="gulu-dialog">
+          <header>
+            <slot name="title" />
+            <span @click="close" class="gulu-dialog-close"></span>
+          </header>
+          <main>
+            <slot name="content" />
+          </main>
+          <footer>
+            <Button level="main" @click="ok">OK</Button>
+            <Button @click="cancel">Cancel</Button>
+          </footer>
+        </div>
+      </div>
     </Teleport>
+  </template>
 </template>
-</template>
-<script lang="ts">
-import Button from './Button.vue';
 
+<script lang="ts">
+import Button from "./Button.vue";
 export default {
-  props:{
-    visible:{ //是否出现输入框
-      type:Boolean,
-      default:false
+  props: {
+    visible: {
+      type: Boolean,
+      default: false
     },
-    closeOnclickOverlay: {//点击遮罩层关闭输入框，默认是是的
-     type:Boolean,
+    closeOnClickOverlay: {
+      type: Boolean,
       default: true
     },
-    f1:{
-      type:Function,
+    ok: {
+      type: Function
     },
-    f2:{
-      type:Function,
-    },
-  },
-  components:{
-    Button
-  },
-  setup(props,context){
-    const close = ()=>{
-      context.emit('update:visible',false)
+    cancel: {
+      type: Function
     }
-    const  OnClickOverlay =()=>{//判断closeOnclickOverlay是否为true,再运行Close
-      if (props.closeOnclickOverlay){
+  },
+  components: {
+    Button,
+  },
+  setup(props, context) {
+    const close = () => {
+      context.emit('update:visible', false)
+    }
+    const onClickOverlay = () => {
+      if (props.closeOnClickOverlay) {
         close()
       }
     }
-    //没有办法判断是否有输入内容再关闭
-      //所以再父组件创建一个ok函数，子组件判断这个函数的是否存在，并且返回值不为false才执行close()
-      const ok = () => {
-        if (props.ok?.() !== false) {
-          close()
-        }
+    const ok = () => {
+      if (props.ok?.() !== false) {
+        close()
       }
-    const cancel = ()=>{
-      props.cancel?.() //判断是否存在cancel
+    }
+    const cancel = () => {
+      props.cancel?.()
       close()
     }
-    return{close,OnClickOverlay,ok,cancel}
+    return {
+      close,
+      onClickOverlay,
+      ok,
+      cancel
+    }
   }
-}
+};
 </script>
+
 <style lang="scss">
-$radius:4px;
-$border-color:#d9d9d9;
-
-.gulu-dialog{
-  background:white;
+$radius: 4px;
+$border-color: #d9d9d9;
+.gulu-dialog {
+  background: white;
   border-radius: $radius;
-  box-shadow: 0 0 3px fade-out(black,0.5);
-  min-width: 24em;
+  box-shadow: 0 0 3px fade_out(black, 0.5);
+  min-width: 15em;
   max-width: 90%;
-
   &-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: fade-out(black,0.5);
+    background: fade_out(black, 0.5);
     z-index: 10;
   }
-  &-wrapper{
+  &-wrapper {
     position: fixed;
     left: 50%;
     top: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     z-index: 11;
   }
-  > header {
+  >header {
     padding: 12px 16px;
     border-bottom: 1px solid $border-color;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
     font-size: 20px;
-    background:pink;
-    border-radius: $radius;
   }
-  > main {
+  >main {
     padding: 12px 16px;
   }
-  > footer {
+  >footer {
     border-top: 1px solid $border-color;
     padding: 12px 16px;
     text-align: right;
   }
- &-context{
-   position: relative;
-   display: inline-block;
-   width: 16px;
-   height: 16px;
-   background: pink;
-   &::before,
-   &::after{
-     content: '';
-     position: absolute;
-   }
-
- }
   &-close {
     position: relative;
     display: inline-block;
     width: 16px;
     height: 16px;
     cursor: pointer;
-    background: pink;
-
-  &::before,
-  &::after{
-    content: '';
-    position: absolute;
-    height: 1px;
-    background: black;
-    width: 100%;
-    top: 50%;
-    left: 50%;
-  }
-
-  &::before{
-    transform: translate(-50%,-50%) rotate(-45deg);
-  }
-  &::after {
-    transform: translate(-50%, -50%) rotate(45deg);
-  }
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      height: 1px;
+      background: black;
+      width: 100%;
+      top: 50%;
+      left: 50%;
+    }
+    &::before {
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+    &::after {
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
   }
 }
 </style>

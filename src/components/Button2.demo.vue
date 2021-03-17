@@ -4,7 +4,7 @@
 <template>
   <div>
     <div>
-      <Button size="big">Big</Button>
+      <Button size="big">Bigbutton</Button>
       <Button>Normal</Button>
       <Button size="small">Small</Button>
     </div>

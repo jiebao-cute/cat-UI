@@ -46,13 +46,13 @@ props: {
 $h:32px;
 $border-color:#d9d9d9;
 $color:#333;
-$blue:#40a9ff;
+$blue:#d29959;
 $radius:4px;
 .gulu-button{
   box-sizing: border-box;
   height: $h;
   margin: 8px 0;
-  padding: 0 16px;
+  padding: 0 12px;
   cursor: pointer;//鼠标悬浮变成手
   display: inline-flex;
   justify-content: center;
@@ -65,7 +65,7 @@ $radius:4px;
   box-shadow: 0 1px 0  fade-out(black,0.95);
   transition: background 250ms ;
   & + &  {
-    margin-left: 18px;//button之间的间隔
+    margin-left: 8px;//button之间的间隔
   }
   &:hover,
   &:focus{
@@ -86,8 +86,8 @@ $radius:4px;
     &:hover,
     &:focus::after{
       content: '';
-      border-bottom: 1px solid black;
-      color: black;
+      color: white;
+      background: #392a23;
     }
   }
     &.gulu-theme-text {
@@ -96,13 +96,12 @@ $radius:4px;
       color: inherit;
       &:hover,
       &:focus {
-        background: darken(white, 5%);
+        background: darken(white, 50%);
         border-color:black;
+        color: white;
       }
     }
-  &.gulu-theme-button{
-    margin: 0 14px ;
-  }
+
   &.gulu-size-big {
     font-size: 20px;
     height: 46px;

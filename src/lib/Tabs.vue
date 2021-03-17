@@ -71,7 +71,7 @@ export  default {
 }
 </script>
 <style lang="scss">
-$blue:#40a9ff;
+$blue:#4a3c36;
 $color:#333;
 $border-color:#d9d9d9;
 .gulu-tabs{
@@ -88,7 +88,7 @@ $border-color:#d9d9d9;
         margin-left: 0;
       }
       &.selected{
-        color:#40a9ff;
+        color:black;
       }
     }
     &-indicator{

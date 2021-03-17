@@ -6,11 +6,11 @@
     <Button @click="toggle">打开对话框</Button>
     <Dialog v-model:visible="x" :closeOnClickOverlay="false" :ok="f1" :cancel="f2">
       <template v-slot:content>
-        <strong>hi</strong>
-        <div>hi2</div>
+        <strong>这是测试</strong>
+        <div>还是测试</div>
       </template>
       <template v-slot:title>
-        <strong>加粗的标题</strong>
+        <strong>温馨提示</strong>
       </template>
     </Dialog>
   </div>
@@ -22,9 +22,6 @@ import Button from '../lib/Button.vue'
 import {
   ref
 } from 'vue'
-import {
-  openDialog
-} from '../lib/openDialog'
 export default {
   components: {
     Dialog,
@@ -36,7 +33,7 @@ export default {
       x.value = !x.value
     }
     const f1 = () => {
-      return false
+      return true
     }
     const f2 = () => {}
     return {
