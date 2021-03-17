@@ -10,12 +10,19 @@
         <router-link to="/doc">文档</router-link>
       </li>
     </ul>
-    <span class ="toggleMenu"  @click="toggleMenu"></span>
+    <span v-if="toggleMenuButtonVisible"
+        class ="toggleMenu"  @click="toggleMenu"></span>
   </div>
 </template>
 <script lang="ts">
 import {inject,Ref} from 'vue'
 export default {
+  props:{
+    toggleMenuButtonVisible:{
+      type:Boolean,
+      default:false
+    }
+  },
  setup(){
    const menuVisible = inject<Ref<boolean>>('menuVisible')//get
    const toggleMenu = ()=>{

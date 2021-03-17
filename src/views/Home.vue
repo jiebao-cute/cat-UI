@@ -1,5 +1,6 @@
 <template>
   <div>
+    <div class="kuang">
   <div class="topnavAndBanner">
     <Topnav/>
     <div class="banner">
@@ -37,6 +38,7 @@
       </ul>
   </div>
   </div>
+  </div>
 </template>
 <script lang="ts">
 import Topnav from '../components/Topnav.vue';
@@ -46,11 +48,16 @@ export default {
 </script>
 <style lang="scss" scoped>
 $border-radius: 6px;
+.kuang{
+  background:#c6c1be;
+
+}
 .topnavAndBanner{
   background: linear-gradient(145deg, rgba(136,125,119,1) 0%, rgba(57,42,35,1) 100%);
- clip-path: ellipse(80% 60% at 50% 40%);
+  clip-path: ellipse(80% 60% at 50% 40%);
 }
 .features {
+
   margin: 64px auto;
   width: 400px;
   @media (min-width: 800px) {
