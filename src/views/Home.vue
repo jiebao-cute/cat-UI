@@ -5,7 +5,7 @@
     <Topnav/>
     <div class="banner">
       <h1>cat UI</h1>
-      <h2>这是一个厉害的框架</h2>
+      <h2>这是一个尝试的框架</h2>
       <p class="action">
         <a href="https://github.com/">GitHub</a>
         <router-link to="/doc">开始</router-link>
@@ -19,21 +19,21 @@
             <use xlink:href="#iconVue"></use>
           </svg>
           <h3>基于 Vue 3</h3>
-          <p>骄傲地使用了 Vue 3 Composition API</p>
+          <p>使用了 Vue 3 Composition API</p>
         </li>
         <li>
           <svg>
             <use xlink:href="#iconTS"></use>
           </svg>
           <h3>基于 TypeScript </h3>
-          <p>源代码采用 TypeScript 书写（非严格检查）</p>
+          <p>源代码采用 TypeScript 书写</p>
         </li>
         <li>
           <svg>
             <use xlink:href="#iconlight"></use>
           </svg>
           <h3>代码易读</h3>
-          <p>每个组件的源代码都极其简洁</p>
+          <p>每个组件的源代码比较简洁</p>
         </li>
       </ul>
   </div>
